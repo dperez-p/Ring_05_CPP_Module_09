@@ -21,7 +21,7 @@ RPN::~RPN()
 }
 
 // function to calculate operations
-int	RPN::calculate(const std::string& expression)
+double	RPN::calculate(const std::string& expression)
 {
 	std::istringstream	iss(expression);
 	std::string			token;
@@ -38,11 +38,11 @@ int	RPN::calculate(const std::string& expression)
 			{
 				throw std::runtime_error("not enought operands, malformed expression.");
 			}
-			int	b = _stack.top(); //extract
+			double	b = _stack.top(); //extract
 			_stack.pop(); //delete actual
-			int	a = _stack.top();
+			double	a = _stack.top();
 			_stack.pop();
-			int	result = applyOperator(token, a, b);
+			double	result = applyOperator(token, a, b);
 			_stack.push(result);
 		}
 		else
@@ -91,7 +91,7 @@ bool RPN::isNumber(const std::string& token) const
 }
 
 //aply the operator, we need to be careful with the order, a is the older
-int	RPN::applyOperator(const std::string& op, int a, int b) const
+double	RPN::applyOperator(const std::string& op, double a, double b) const
 {
 	switch (op[0])
 	{

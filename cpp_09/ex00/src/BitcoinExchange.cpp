@@ -138,15 +138,12 @@ void	BitcoinExchange::processInputFile(const std::string& filename) const
 		std::cout << "Error: Missing header." << std::endl;
 		return ;
 	}
-	if (!std::getline(file, line))
-	{
-		std::cout << "Error: file is empty or has no data." << std::endl;
-		return ;
-	}
-	do
+	//bool	datafound = false;
+	while (std::getline(file, line))
 	{
 		if (line.empty())
 		{
+			std::cout << "Error: empty line." << std::endl;
 			continue;
 		}
 		size_t sepPos = line.find('|');
@@ -157,7 +154,7 @@ void	BitcoinExchange::processInputFile(const std::string& filename) const
 		}
 		std::string	date = skipSpaces(line.substr(0, sepPos));
 		std::string valueStr = skipSpaces(line.substr(sepPos + 1));
-
+		//datafound = true;
 		if (!isValidDate(date))
 		{
 			std::cout << "Error: bad input => " << line << std::endl;
@@ -193,6 +190,12 @@ void	BitcoinExchange::processInputFile(const std::string& filename) const
 		}
 		double	result = value * it->second;
 		std::cout << date << " => " << valueStr << " = " << result << std::endl;
-	} while (std::getline(file, line));
+	}
+	//if (!datafound)
+	//{
+	//	std::cout << "Error: file is empty or has no data." << std::endl;
+	//	return ;
+	//}
+	
 	file.close();
 }

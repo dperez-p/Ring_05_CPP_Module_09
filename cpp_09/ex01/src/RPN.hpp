@@ -22,19 +22,19 @@
 class RPN
 {
 private:
-	std::stack<int>	_stack; //container
+	std::stack<double>	_stack; //container
 
 	bool	isOperator(const std::string& token) const; //chekcs if a token is = - / *
 
 	bool	isNumber(const std::string& token) const; //checks if is a valid number
 
-	int		applyOperator(const std::string& op, int a, int b) const;
+	double		applyOperator(const std::string& op, double a, double b) const;
 
 
 public:
 	RPN();
 	~RPN();
 
-	int	calculate(const std::string& expression);
+	double	calculate(const std::string& expression);
 };
 

@@ -23,7 +23,7 @@ int	main(int ac, char** av)
 
 	try
 	{
-		int result = school.calculate(av[1]);
+		double result = school.calculate(av[1]);
 		std::cout << result << std::endl;
 	}
 	catch(const std::exception& e)
