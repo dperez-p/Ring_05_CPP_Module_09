@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 18:37:41 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/07/30 15:02:33 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/08/08 17:59:59 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ bool	BitcoinExchange::isValidDate(const std::string& date) const
 	int	month = std::atoi(date.substr(5, 2).c_str());
 	int	day	= std::atoi(date.substr(8, 2).c_str());
 
+	if (year < 2009 || year > 2030)
+		return false;
 	if (month < 1 || month > 12)
 		return false;
 	if (day < 1 || day > 31)
@@ -135,7 +137,7 @@ void	BitcoinExchange::processInputFile(const std::string& filename) const
 	std::getline(file, line);
 	if (line != "date | value")
 	{
-		std::cout << "Error: Missing header." << std::endl;
+		std::cout << "Error: missing header." << std::endl;
 		return ;
 	}
 	//bool	datafound = false;
@@ -196,6 +198,6 @@ void	BitcoinExchange::processInputFile(const std::string& filename) const
 	//	std::cout << "Error: file is empty or has no data." << std::endl;
 	//	return ;
 	//}
-	
+
 	file.close();
 }

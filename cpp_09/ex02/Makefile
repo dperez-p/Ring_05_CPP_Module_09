@@ -6,17 +6,17 @@
 #    By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/19 18:36:46 by dperez-p          #+#    #+#              #
-#    Updated: 2026/07/30 13:38:08 by dperez-p         ###   ########.fr        #
+#    Updated: 2026/08/08 10:13:35 by dperez-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = btc
+NAME = PmergeMe
 
 CXX = c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRCS =	src/main.cpp \
-		src/BitcoinExchange.cpp
+		src/PmergeMe.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

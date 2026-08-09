@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 08:55:39 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/08/02 12:19:50 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/08/05 16:43:04 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ RPN::~RPN()
 // function to calculate operations
 double	RPN::calculate(const std::string& expression)
 {
+	// Ensure stack is empty at start to allow reusing the object safely
+	while (!_stack.empty())
+		_stack.pop();
 	std::istringstream	iss(expression);
 	std::string			token;
 
