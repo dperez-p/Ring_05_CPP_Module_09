@@ -71,7 +71,7 @@ std::vector<size_t> PmergeMe::jacobsthalGaps(size_t n)
 	return order;
 }
 
-//search vector possition to insert,
+//search vector possition to insert, with binary search
 size_t PmergeMe::vectorFindInsertPos(const std::vector<size_t>& chain, size_t valueIdx, size_t searchLimit) const
 {
 	size_t lo = 0; //start range
@@ -166,7 +166,7 @@ std::vector<size_t> PmergeMe::vectorRecSort(std::vector<size_t> index)
 }
 
 /********************************************LIST**********************************************************************************/
-
+//lineal search, cant use binary search
 void PmergeMe::listInsertPending(std::list<size_t>& chain, std::vector<std::pair<size_t, size_t> >& pairs)
 {
 	// start inserting things into chain (same idea as vector version).
